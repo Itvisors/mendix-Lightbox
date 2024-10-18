@@ -8,9 +8,13 @@
     <icon/>
     <properties>
         <propertyGroup caption="General">
-            <property key="sampleText" type="string" required="false">
-                <caption>Default value</caption>
-                <description>Sample text input</description>
+            <property key="ds" type="datasource" isList="true">
+                <caption>Data source</caption>
+                <description>Datasource for list of images</description>
+            </property>
+            <property key="onCloseAction" type="action" required="false">
+                <caption>On close action</caption>
+                <description>Action to trigger after lightbox is closed</description>
             </property>
         </propertyGroup>
     </properties>

@@ -4,13 +4,15 @@
  * @author Mendix Widgets Framework Team
  */
 import { CSSProperties } from "react";
+import { ActionValue, ListValue } from "mendix";
 
 export interface LightboxWebWidgetContainerProps {
     name: string;
     class: string;
     style?: CSSProperties;
     tabIndex?: number;
-    sampleText: string;
+    ds: ListValue;
+    onCloseAction?: ActionValue;
 }
 
 export interface LightboxWebWidgetPreviewProps {
@@ -23,5 +25,6 @@ export interface LightboxWebWidgetPreviewProps {
     styleObject?: CSSProperties;
     readOnly: boolean;
     renderMode?: "design" | "xray" | "structure";
-    sampleText: string;
+    ds: {} | { caption: string } | { type: string } | null;
+    onCloseAction: {} | null;
 }
