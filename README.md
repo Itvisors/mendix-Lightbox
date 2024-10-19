@@ -1,24 +1,19 @@
 ## LightboxWebWidget
-[Lightbox for web]
+Show images in a lightbox with pan/zoom and captions.
+
+This widget is a wrapper around [Yet Another React Lightbox](https://yet-another-react-lightbox.com/)
 
 ## Features
-[feature highlights]
+- Show one or more images in a lightbox allow the user to navigate between images
+- Zoom and pan the image
+- Optionally show a title and description for each image
+
+## Limitations
+- This widget does not work well in a default layout. Use a layout without scrollcontainer
 
 ## Usage
-[step by step instructions]
+- Place the widget on a separate page
+- The page must use a layout without scroll container, create one if necessary
+- Configure the onClose action to close the page, or call a microflow/nanoflow that at least closes the current page
+- Open the page, the lightbox will appear
 
-## Demo project
-[link to sandbox]
-
-## Issues, suggestions and feature requests
-[link to GitHub issues]
-
-## Development and contribution
-
-1. Install NPM package dependencies by using: `npm install`. If you use NPM v7.x.x, which can be checked by executing `npm -v`, execute: `npm install --legacy-peer-deps`.
-1. Run `npm start` to watch for code changes. On every change:
-    - the widget will be bundled;
-    - the bundle will be included in a `dist` folder in the root directory of the project;
-    - the bundle will be included in the `deployment` and `widgets` folder of the Mendix test project.
-
-[specify contribution]

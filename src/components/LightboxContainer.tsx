@@ -2,9 +2,11 @@ import { ReactElement, createElement, useEffect, useState } from "react";
 import Lightbox, { SlideImage } from "yet-another-react-lightbox";
 import Captions from "yet-another-react-lightbox/plugins/captions";
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/plugins/captions.css";
 import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
 
 export interface LightboxContainerProps {
     slides: SlideImage[];
@@ -28,8 +30,20 @@ export function LightboxContainer({ slides, onClose }: LightboxContainerProps): 
                     setOpenState("closed");
                     onClose();
                 }}
+                // carousel={{ preload }}
                 slides={slides}
-                plugins={[Captions, Fullscreen, Zoom]}
+                carousel={{ finite: true, preload: 5 }}
+                plugins={[Captions, Fullscreen, Thumbnails, Zoom]}
+                thumbnails={{
+                    position: "bottom",
+                    width: 120,
+                    height: 80,
+                    border: 1,
+                    borderRadius: 4,
+                    padding: 4,
+                    gap: 16,
+                    showToggle: true
+                }}
             />
         </div>
     );
