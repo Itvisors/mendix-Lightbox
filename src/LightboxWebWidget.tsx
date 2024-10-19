@@ -6,11 +6,14 @@ import { LightboxWebWidgetContainerProps } from "../typings/LightboxWebWidgetPro
 import "./ui/LightboxWebWidget.css";
 
 export function LightboxWebWidget(props: LightboxWebWidgetContainerProps): ReactElement {
-    const { onCloseAction } = props;
+    const { ds, onCloseAction } = props;
     const onCloseHandler = useCallback(() => {
         if (onCloseAction && onCloseAction.canExecute && !onCloseAction.isExecuting) {
             onCloseAction.execute();
         }
     }, [onCloseAction]);
-    return <LightboxContainer dsItems={props.ds.items} onClose={onCloseHandler} />;
+    if (!ds.items) {
+        return <div />;
+    }
+    return <LightboxContainer dsItems={ds.items} onClose={onCloseHandler} />;
 }
