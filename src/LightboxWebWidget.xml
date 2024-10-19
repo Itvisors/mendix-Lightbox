@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
     <name>Lightbox Web Widget</name>
     <description>Lightbox for web</description>
-    <icon/>
+    <studioProCategory>Images, videos &amp; files</studioProCategory>
     <properties>
         <propertyGroup caption="General">
             <property key="ds" type="datasource" isList="true">

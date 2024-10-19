@@ -13,7 +13,7 @@ export interface LightboxContainerProps {
 }
 
 export function LightboxContainer({ dsItems, onClose }: LightboxContainerProps): ReactElement {
-    const [openState, setOpenState] = useState("initial");
+    const [openState, setOpenState] = useState<"initial" | "open" | "closed">("initial");
     const slides = [];
     if (dsItems) {
         for (const dsItem of dsItems) {
