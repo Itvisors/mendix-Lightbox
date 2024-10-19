@@ -1,4 +1,4 @@
-import { ReactElement, createElement, useCallback } from "react";
+import { ReactElement, createElement, useCallback, useMemo } from "react";
 import { LightboxContainer } from "./components/LightboxContainer";
 
 import { LightboxWebWidgetContainerProps } from "../typings/LightboxWebWidgetProps";
@@ -6,14 +6,31 @@ import { LightboxWebWidgetContainerProps } from "../typings/LightboxWebWidgetPro
 import "./ui/LightboxWebWidget.css";
 
 export function LightboxWebWidget(props: LightboxWebWidgetContainerProps): ReactElement {
-    const { ds, onCloseAction } = props;
+    const { onCloseAction } = props;
     const onCloseHandler = useCallback(() => {
         if (onCloseAction && onCloseAction.canExecute && !onCloseAction.isExecuting) {
             onCloseAction.execute();
         }
     }, [onCloseAction]);
-    if (!ds.items) {
+
+    const { ds, dsTitleAttribute, dsDescriptionAttribute } = props;
+    const slides = useMemo(() => {
+        const result = [];
+        if (ds.items) {
+            for (const dsItem of ds.items) {
+                const url = "/file?guid=" + dsItem.id;
+                result.push({
+                    src: url,
+                    title: dsTitleAttribute?.get(dsItem)?.value,
+                    description: dsDescriptionAttribute?.get(dsItem)?.value
+                });
+            }
+        }
+        return result;
+    }, [ds.items, dsDescriptionAttribute, dsTitleAttribute]);
+
+    if (slides.length === 0) {
         return <div />;
     }
-    return <LightboxContainer dsItems={ds.items} onClose={onCloseHandler} />;
+    return <LightboxContainer slides={slides} onClose={onCloseHandler} />;
 }

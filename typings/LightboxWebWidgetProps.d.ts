@@ -4,7 +4,7 @@
  * @author Mendix Widgets Framework Team
  */
 import { CSSProperties } from "react";
-import { ActionValue, ListValue } from "mendix";
+import { ActionValue, ListValue, ListExpressionValue } from "mendix";
 
 export interface LightboxWebWidgetContainerProps {
     name: string;
@@ -12,6 +12,8 @@ export interface LightboxWebWidgetContainerProps {
     style?: CSSProperties;
     tabIndex?: number;
     ds: ListValue;
+    dsTitleAttribute?: ListExpressionValue<string>;
+    dsDescriptionAttribute?: ListExpressionValue<string>;
     onCloseAction?: ActionValue;
 }
 
@@ -26,5 +28,7 @@ export interface LightboxWebWidgetPreviewProps {
     readOnly: boolean;
     renderMode?: "design" | "xray" | "structure";
     ds: {} | { caption: string } | { type: string } | null;
+    dsTitleAttribute: string;
+    dsDescriptionAttribute: string;
     onCloseAction: {} | null;
 }

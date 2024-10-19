@@ -12,6 +12,16 @@
                 <caption>Data source</caption>
                 <description>Datasource for list of images</description>
             </property>
+            <property key="dsTitleAttribute" type="expression" dataSource="ds" required="false">
+                <caption>Title</caption>
+                <description>Title to show in the top left area over the image. (Optional)</description>
+                <returnType type="String" />
+            </property>
+            <property key="dsDescriptionAttribute" type="expression" dataSource="ds" required="false">
+                <caption>Description</caption>
+                <description>Description to show in the bottom area over the image. (Optional)</description>
+                <returnType type="String" />
+            </property>
             <property key="onCloseAction" type="action" required="false">
                 <caption>On close action</caption>
                 <description>Action to trigger after lightbox is closed</description>

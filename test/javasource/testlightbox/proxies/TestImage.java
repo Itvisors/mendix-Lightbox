@@ -16,6 +16,8 @@ public class TestImage extends system.proxies.Image
 	 */
 	public enum MemberNames
 	{
+		Title("Title"),
+		Description("Description"),
 		PublicThumbnailPath("PublicThumbnailPath"),
 		EnableCaching("EnableCaching"),
 		FileID("FileID"),
@@ -77,6 +79,78 @@ public class TestImage extends system.proxies.Image
 			.stream()
 			.map(obj -> testlightbox.proxies.TestImage.initialize(context, obj))
 			.collect(java.util.stream.Collectors.toList());
+	}
+
+	/**
+	 * @return value of Title
+	 */
+	public final java.lang.String getTitle()
+	{
+		return getTitle(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Title
+	 */
+	public final java.lang.String getTitle(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.Title.toString());
+	}
+
+	/**
+	 * Set value of Title
+	 * @param title
+	 */
+	public final void setTitle(java.lang.String title)
+	{
+		setTitle(getContext(), title);
+	}
+
+	/**
+	 * Set value of Title
+	 * @param context
+	 * @param title
+	 */
+	public final void setTitle(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String title)
+	{
+		getMendixObject().setValue(context, MemberNames.Title.toString(), title);
+	}
+
+	/**
+	 * @return value of Description
+	 */
+	public final java.lang.String getDescription()
+	{
+		return getDescription(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Description
+	 */
+	public final java.lang.String getDescription(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.Description.toString());
+	}
+
+	/**
+	 * Set value of Description
+	 * @param description
+	 */
+	public final void setDescription(java.lang.String description)
+	{
+		setDescription(getContext(), description);
+	}
+
+	/**
+	 * Set value of Description
+	 * @param context
+	 * @param description
+	 */
+	public final void setDescription(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String description)
+	{
+		getMendixObject().setValue(context, MemberNames.Description.toString(), description);
 	}
 
 	@java.lang.Override
