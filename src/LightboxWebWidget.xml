@@ -27,5 +27,63 @@
                 <description>Action to trigger after lightbox is closed</description>
             </property>
         </propertyGroup>
+        <propertyGroup caption="Thumbnails">
+            <property key="thumbnailPosition" type="enumeration" defaultValue="bottom">
+                <caption>Position</caption>
+                <description></description>
+                <enumerationValues>
+                    <enumerationValue key="bottom">Bottom</enumerationValue>
+                    <enumerationValue key="top">Top</enumerationValue>
+                    <enumerationValue key="start">Start</enumerationValue>
+                    <enumerationValue key="end">End</enumerationValue>
+                </enumerationValues>
+            </property>
+            <property key="showThumbnails" type="boolean" defaultValue="true">
+                <caption>Show thumbnails</caption>
+                <description></description>
+            </property>
+            <property key="thumbnailsShowToggle" type="boolean" defaultValue="true">
+                <caption>Show thumbnails toggle</caption>
+                <description></description>
+            </property>
+            <property key="thumbnailWidth" type="integer" defaultValue="120">
+                <caption>Width</caption>
+                <description></description>
+            </property>
+            <property key="thumbnailHeight" type="integer" defaultValue="80">
+                <caption>Height</caption>
+                <description></description>
+            </property>
+            <property key="thumbnailBorder" type="integer" defaultValue="1">
+                <caption>Border width</caption>
+                <description></description>
+            </property>
+            <property key="thumbnailBorderRadius" type="integer" defaultValue="4">
+                <caption>Border radius</caption>
+                <description></description>
+            </property>
+            <property key="thumbnailPadding" type="integer" defaultValue="4">
+                <caption>Padding</caption>
+                <description></description>
+            </property>
+            <property key="thumbnailGap" type="integer" defaultValue="16">
+                <caption>Gap</caption>
+                <description></description>
+            </property>
+            <property key="thumbnailBorderColor" type="string" defaultValue="#787d87">
+                <caption>Border color</caption>
+                <description></description>
+            </property>
+            <property key="thumbnailActiveBorderColor" type="string" defaultValue="#ced0d3">
+                <caption>Active image border color</caption>
+                <description></description>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Advanced">
+            <property key="carouselPreload" type="integer" defaultValue="0">
+                <caption>Preload count</caption>
+                <description>Number of images to preload. Set to zero to make sure all images are preloaded. This can affect performance on large image sets</description>
+            </property>
+        </propertyGroup>
     </properties>
 </widget>

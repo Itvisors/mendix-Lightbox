@@ -6,6 +6,8 @@
 import { CSSProperties } from "react";
 import { ActionValue, ListValue, ListExpressionValue } from "mendix";
 
+export type ThumbnailPositionEnum = "bottom" | "top" | "start" | "end";
+
 export interface LightboxWebWidgetContainerProps {
     name: string;
     class: string;
@@ -15,6 +17,18 @@ export interface LightboxWebWidgetContainerProps {
     dsTitleAttribute?: ListExpressionValue<string>;
     dsDescriptionAttribute?: ListExpressionValue<string>;
     onCloseAction?: ActionValue;
+    thumbnailPosition: ThumbnailPositionEnum;
+    showThumbnails: boolean;
+    thumbnailsShowToggle: boolean;
+    thumbnailWidth: number;
+    thumbnailHeight: number;
+    thumbnailBorder: number;
+    thumbnailBorderRadius: number;
+    thumbnailPadding: number;
+    thumbnailGap: number;
+    thumbnailBorderColor: string;
+    thumbnailActiveBorderColor: string;
+    carouselPreload: number;
 }
 
 export interface LightboxWebWidgetPreviewProps {
@@ -31,4 +45,16 @@ export interface LightboxWebWidgetPreviewProps {
     dsTitleAttribute: string;
     dsDescriptionAttribute: string;
     onCloseAction: {} | null;
+    thumbnailPosition: ThumbnailPositionEnum;
+    showThumbnails: boolean;
+    thumbnailsShowToggle: boolean;
+    thumbnailWidth: number | null;
+    thumbnailHeight: number | null;
+    thumbnailBorder: number | null;
+    thumbnailBorderRadius: number | null;
+    thumbnailPadding: number | null;
+    thumbnailGap: number | null;
+    thumbnailBorderColor: string;
+    thumbnailActiveBorderColor: string;
+    carouselPreload: number | null;
 }

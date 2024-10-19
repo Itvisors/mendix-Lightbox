@@ -10,10 +10,22 @@ import "yet-another-react-lightbox/plugins/thumbnails.css";
 
 export interface LightboxContainerProps {
     slides: SlideImage[];
+    carouselPreload: number;
+    thumbnailPosition: "top" | "bottom" | "start" | "end";
+    thumbnailsHidden: boolean;
+    thumbnailsShowToggle: boolean;
+    thumbnailWidth: number;
+    thumbnailHeight: number;
+    thumbnailBorder: number;
+    thumbnailBorderRadius: number;
+    thumbnailPadding: number;
+    thumbnailGap: number;
+    thumbnailBorderColor: string;
+    thumbnailActiveBorderColor: string;
     onClose: () => void;
 }
 
-export function LightboxContainer({ slides, onClose }: LightboxContainerProps): ReactElement {
+export function LightboxContainer(props: LightboxContainerProps): ReactElement {
     const [openState, setOpenState] = useState<"initial" | "open" | "closed">("initial");
     useEffect(() => {
         if (openState === "initial") {
@@ -23,26 +35,33 @@ export function LightboxContainer({ slides, onClose }: LightboxContainerProps): 
         }
     }, [openState]);
     return (
-        <div>
+        <div className="lightbox-web-widget">
             <Lightbox
                 open={openState === "open"}
                 close={() => {
                     setOpenState("closed");
-                    onClose();
+                    props.onClose();
                 }}
                 // carousel={{ preload }}
-                slides={slides}
-                carousel={{ finite: true, preload: 5 }}
+                slides={props.slides}
+                carousel={{ finite: true, preload: props.carouselPreload }}
                 plugins={[Captions, Fullscreen, Thumbnails, Zoom]}
                 thumbnails={{
-                    position: "bottom",
-                    width: 120,
-                    height: 80,
-                    border: 1,
-                    borderRadius: 4,
-                    padding: 4,
-                    gap: 16,
-                    showToggle: true
+                    position: props.thumbnailPosition,
+                    width: props.thumbnailWidth,
+                    height: props.thumbnailHeight,
+                    border: props.thumbnailBorder,
+                    borderRadius: props.thumbnailBorderRadius,
+                    padding: props.thumbnailPadding,
+                    gap: props.thumbnailGap,
+                    hidden: props.thumbnailsHidden,
+                    showToggle: props.thumbnailsShowToggle
+                }}
+                styles={{
+                    root: {
+                        "--yarl__thumbnails_thumbnail_border_color": props.thumbnailBorderColor,
+                        "--yarl__thumbnails_thumbnail_active_border_color": props.thumbnailActiveBorderColor
+                    }
                 }}
             />
         </div>
