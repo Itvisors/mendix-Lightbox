@@ -17,9 +17,9 @@ export interface LightboxWebWidgetContainerProps {
     dsTitleAttribute?: ListExpressionValue<string>;
     dsDescriptionAttribute?: ListExpressionValue<string>;
     onCloseAction?: ActionValue;
-    thumbnailPosition: ThumbnailPositionEnum;
     showThumbnails: boolean;
     thumbnailsShowToggle: boolean;
+    thumbnailPosition: ThumbnailPositionEnum;
     thumbnailWidth: number;
     thumbnailHeight: number;
     thumbnailBorder: number;
@@ -45,9 +45,9 @@ export interface LightboxWebWidgetPreviewProps {
     dsTitleAttribute: string;
     dsDescriptionAttribute: string;
     onCloseAction: {} | null;
-    thumbnailPosition: ThumbnailPositionEnum;
     showThumbnails: boolean;
     thumbnailsShowToggle: boolean;
+    thumbnailPosition: ThumbnailPositionEnum;
     thumbnailWidth: number | null;
     thumbnailHeight: number | null;
     thumbnailBorder: number | null;

@@ -28,6 +28,14 @@
             </property>
         </propertyGroup>
         <propertyGroup caption="Thumbnails">
+            <property key="showThumbnails" type="boolean" defaultValue="true">
+                <caption>Show thumbnails</caption>
+                <description></description>
+            </property>
+            <property key="thumbnailsShowToggle" type="boolean" defaultValue="true">
+                <caption>Show thumbnails toggle</caption>
+                <description></description>
+            </property>
             <property key="thumbnailPosition" type="enumeration" defaultValue="bottom">
                 <caption>Position</caption>
                 <description></description>
@@ -37,14 +45,6 @@
                     <enumerationValue key="start">Start</enumerationValue>
                     <enumerationValue key="end">End</enumerationValue>
                 </enumerationValues>
-            </property>
-            <property key="showThumbnails" type="boolean" defaultValue="true">
-                <caption>Show thumbnails</caption>
-                <description></description>
-            </property>
-            <property key="thumbnailsShowToggle" type="boolean" defaultValue="true">
-                <caption>Show thumbnails toggle</caption>
-                <description></description>
             </property>
             <property key="thumbnailWidth" type="integer" defaultValue="120">
                 <caption>Width</caption>

@@ -112,20 +112,53 @@ export function getProperties(
     return defaultProperties;
 }
 
-// export function check(_values: LightboxWebWidgetPreviewProps): Problem[] {
-//     const errors: Problem[] = [];
-//     // Add errors to the above array to throw errors in Studio and Studio Pro.
-//     /* Example
-//     if (values.myProperty !== "custom") {
-//         errors.push({
-//             property: `myProperty`,
-//             message: `The value of 'myProperty' is different of 'custom'.`,
-//             url: "https://github.com/myrepo/mywidget"
-//         });
-//     }
-//     */
-//     return errors;
-// }
+export function check(_values: LightboxWebWidgetPreviewProps): Problem[] {
+    const errors: Problem[] = [];
+    // Add errors to the above array to throw errors in Studio and Studio Pro.
+    if (_values.carouselPreload != null && _values.carouselPreload < 0) {
+        errors.push({
+            property: "carouselPreload",
+            message: "Preload count must be zero or a positive value"
+        });
+    }
+    if (_values.thumbnailWidth != null && _values.thumbnailWidth < 20) {
+        errors.push({
+            property: "thumbnailWidth",
+            message: "Thumbnail width must be at least 20"
+        });
+    }
+    if (_values.thumbnailHeight != null && _values.thumbnailHeight < 20) {
+        errors.push({
+            property: "thumbnailHeight",
+            message: "Thumbnail height must be at least 20"
+        });
+    }
+    if (_values.thumbnailBorder != null && _values.thumbnailBorder <= 0) {
+        errors.push({
+            property: "thumbnailBorder",
+            message: "Thumbnail border must be a positive value"
+        });
+    }
+    if (_values.thumbnailBorderRadius != null && _values.thumbnailBorderRadius < 0) {
+        errors.push({
+            property: "thumbnailBorderRadius",
+            message: "Thumbnail border radius must be zero or a positive value"
+        });
+    }
+    if (_values.thumbnailPadding != null && _values.thumbnailPadding < 0) {
+        errors.push({
+            property: "thumbnailPadding",
+            message: "Thumbnail padding must be zero or a positive value"
+        });
+    }
+    if (_values.thumbnailGap != null && _values.thumbnailGap < 0) {
+        errors.push({
+            property: "thumbnailGap",
+            message: "Thumbnail gap must be zero or a positive value"
+        });
+    }
+    return errors;
+}
 
 // export function getPreview(values: LightboxWebWidgetPreviewProps, isDarkMode: boolean, version: number[]): PreviewProps {
 //     // Customize your pluggable widget appearance for Studio Pro.

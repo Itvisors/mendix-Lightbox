@@ -1,5 +1,5 @@
 import { ReactElement, createElement, useEffect, useState } from "react";
-import Lightbox, { SlideImage } from "yet-another-react-lightbox";
+import Lightbox, { SlideImage, SlotStyles } from "yet-another-react-lightbox";
 import Captions from "yet-another-react-lightbox/plugins/captions";
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
@@ -34,6 +34,16 @@ export function LightboxContainer(props: LightboxContainerProps): ReactElement {
             }, 100);
         }
     }, [openState]);
+    const styles: SlotStyles = {
+        root: {
+            "--yarl__thumbnails_thumbnail_border_color": props.thumbnailBorderColor,
+            "--yarl__thumbnails_thumbnail_active_border_color": props.thumbnailActiveBorderColor
+        }
+    };
+    if (props.slides.length === 1) {
+        styles.navigationNext = { color: "transparent" };
+        styles.navigationPrev = { color: "transparent" };
+    }
     return (
         <div className="lightbox-web-widget">
             <Lightbox
@@ -57,12 +67,7 @@ export function LightboxContainer(props: LightboxContainerProps): ReactElement {
                     hidden: props.thumbnailsHidden,
                     showToggle: props.thumbnailsShowToggle
                 }}
-                styles={{
-                    root: {
-                        "--yarl__thumbnails_thumbnail_border_color": props.thumbnailBorderColor,
-                        "--yarl__thumbnails_thumbnail_active_border_color": props.thumbnailActiveBorderColor
-                    }
-                }}
+                styles={styles}
             />
         </div>
     );
