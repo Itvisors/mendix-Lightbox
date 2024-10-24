@@ -12,6 +12,7 @@ This widget is a wrapper around [Yet Another React Lightbox](https://yet-another
 ## Limitations
 - This widget does not work in a default layout. Use a layout without scrollcontainer
 - The lightbox will always occupy the entire browser view area
+- The image will show nothing at all when no images are available.
 
 ## Usage
 - Place the widget on a separate page, without any other content, do not use a layout grid
@@ -20,4 +21,5 @@ This widget is a wrapper around [Yet Another React Lightbox](https://yet-another
 - When the page receives a single image as parameter, use a nanoflow that creates a list with a single item. This avoids an additional server roundtrip
 - Configure the onClose action to close the page, or call a microflow/nanoflow that at least closes the current page
 - Open the page, the lightbox will appear
+- If it is possible there are no images at all, check this before opening the page with the widget and show a relevant message, or hide the button that shows the page.
 
