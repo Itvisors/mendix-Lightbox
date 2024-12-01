@@ -6,6 +6,7 @@ This widget is a wrapper around [Yet Another React Lightbox](https://yet-another
 ## Features
 - Show images in a lightbox allow the user to navigate between images
 - Zoom and pan the image
+- Optionally start the lightbox at a specific image in the list
 - Optionally show a title and description for each image
 - Can also be used as a single image viewer, allowing zoom and pan
 
@@ -18,6 +19,7 @@ This widget is a wrapper around [Yet Another React Lightbox](https://yet-another
 - Place the widget on a separate page, without any other content, do not use a layout grid
 - The page must use a layout without scroll container, create one if necessary
 - Configure the datasource, which must result in a list. However, it is perfectly fine to have a list of one image
+- Optionally pass an image at which the lightbox will position
 - When the page receives a single image as parameter, use a nanoflow that creates a list with a single item. This avoids an additional server roundtrip
 - Configure the onClose action to close the page, or call a microflow/nanoflow that at least closes the current page
 - Open the page, the lightbox will appear
