@@ -29,6 +29,27 @@ export function LightboxWebWidget(props: LightboxWebWidgetContainerProps): React
         return result;
     }, [ds.items, dsDescriptionAttribute, dsTitleAttribute]);
 
+    const { startWithImage } = props;
+
+    const startIndex = useMemo(() => {
+        if (!startWithImage || !startWithImage.value?.uri) {
+            return 0;
+        }
+        // uri: http://localhost:8080/file?guid=1407374883553546&changedDate=1729331248956&name=IMG_4355.jpg
+        // Grab the guid parameter from it
+        const url = new URL(startWithImage.value.uri);
+        const startWithGuid = url.searchParams.get("guid");
+        if (!startWithGuid) {
+            return 0;
+        }
+        const slideIndex = slides.findIndex(element => element.src.indexOf(startWithGuid) >= 0);
+        if (slideIndex > 0) {
+            return slideIndex;
+        } else {
+            return 0;
+        }
+    }, [slides, startWithImage]);
+
     if (slides.length === 0) {
         return <div />;
     }
@@ -36,6 +57,7 @@ export function LightboxWebWidget(props: LightboxWebWidgetContainerProps): React
     return (
         <LightboxContainer
             slides={slides}
+            index={startIndex}
             onClose={onCloseHandler}
             carouselPreload={props.carouselPreload > 0 ? props.carouselPreload : slides.length}
             thumbnailPosition={props.thumbnailPosition}

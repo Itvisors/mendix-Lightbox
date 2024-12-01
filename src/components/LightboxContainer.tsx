@@ -10,6 +10,7 @@ import "yet-another-react-lightbox/plugins/thumbnails.css";
 
 export interface LightboxContainerProps {
     slides: SlideImage[];
+    index: number;
     carouselPreload: number;
     thumbnailPosition: "top" | "bottom" | "start" | "end";
     thumbnailsHidden: boolean;
@@ -48,6 +49,7 @@ export function LightboxContainer(props: LightboxContainerProps): ReactElement {
         <div className="lightbox-web-widget">
             <Lightbox
                 open={openState === "open"}
+                index={props.index}
                 close={() => {
                     setOpenState("closed");
                     props.onClose();

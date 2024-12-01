@@ -22,6 +22,10 @@
                 <description>Description to show in the bottom area over the image. (Optional)</description>
                 <returnType type="String" />
             </property>
+            <property key="startWithImage" type="file" required="false">
+                <caption>Start with</caption>
+                <description>Image to show when opening the lightbox. If not set or empty, first image in the list will be shown</description>
+            </property>
             <property key="onCloseAction" type="action" required="false">
                 <caption>On close action</caption>
                 <description>Action to trigger after lightbox is closed</description>

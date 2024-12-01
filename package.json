@@ -1,7 +1,7 @@
 {
   "name": "lightboxwebwidget",
   "widgetName": "LightboxWebWidget",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Lightbox for web",
   "copyright": "Aiden 2024",
   "author": "Marcel Groeneweg",

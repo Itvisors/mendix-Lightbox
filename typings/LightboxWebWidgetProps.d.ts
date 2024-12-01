@@ -4,7 +4,7 @@
  * @author Mendix Widgets Framework Team
  */
 import { CSSProperties } from "react";
-import { ActionValue, ListValue, ListExpressionValue } from "mendix";
+import { ActionValue, DynamicValue, FileValue, ListValue, ListExpressionValue } from "mendix";
 
 export type ThumbnailPositionEnum = "bottom" | "top" | "start" | "end";
 
@@ -16,6 +16,7 @@ export interface LightboxWebWidgetContainerProps {
     ds: ListValue;
     dsTitleAttribute?: ListExpressionValue<string>;
     dsDescriptionAttribute?: ListExpressionValue<string>;
+    startWithImage?: DynamicValue<FileValue>;
     onCloseAction?: ActionValue;
     showThumbnails: boolean;
     thumbnailsShowToggle: boolean;
@@ -44,6 +45,7 @@ export interface LightboxWebWidgetPreviewProps {
     ds: {} | { caption: string } | { type: string } | null;
     dsTitleAttribute: string;
     dsDescriptionAttribute: string;
+    startWithImage: string;
     onCloseAction: {} | null;
     showThumbnails: boolean;
     thumbnailsShowToggle: boolean;
