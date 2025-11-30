@@ -139,6 +139,18 @@ export function check(_values: LightboxWebWidgetPreviewProps): Problem[] {
             message: "Property 'URL' is required for image type URL"
         });
     }
+    if (_values.maxZoomPixelRatio != null && _values.maxZoomPixelRatio <= 0) {
+        errors.push({
+            property: "maxZoomPixelRatio",
+            message: "Max zoom pixel ratio must be a positive value"
+        });
+    }
+    if (_values.maxZoomPixelRatio != null && _values.maxZoomPixelRatio > 10) {
+        errors.push({
+            property: "maxZoomPixelRatio",
+            message: "Max zoom pixel ratio may not exceed 10"
+        });
+    }
     if (_values.carouselPreload != null && _values.carouselPreload < 0) {
         errors.push({
             property: "carouselPreload",

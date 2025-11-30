@@ -73,6 +73,7 @@ export function LightboxWebWidget(props: LightboxWebWidgetContainerProps): React
         <LightboxContainer
             slides={slides}
             index={imageType === "url" ? startIndexUrl : startIndexImage}
+            maxZoomPixelRatio={props.maxZoomPixelRatio > 0 ? props.maxZoomPixelRatio : 2}
             onClose={onCloseHandler}
             carouselPreload={props.carouselPreload > 0 ? props.carouselPreload : slides.length}
             thumbnailPosition={props.thumbnailPosition}

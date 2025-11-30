@@ -23,6 +23,7 @@ export interface LightboxWebWidgetContainerProps {
     startWithImage?: DynamicValue<FileValue>;
     startWithUrl?: DynamicValue<string>;
     onCloseAction?: ActionValue;
+    maxZoomPixelRatio: number;
     showThumbnails: boolean;
     thumbnailsShowToggle: boolean;
     thumbnailPosition: ThumbnailPositionEnum;
@@ -56,6 +57,7 @@ export interface LightboxWebWidgetPreviewProps {
     startWithImage: string;
     startWithUrl: string;
     onCloseAction: {} | null;
+    maxZoomPixelRatio: number | null;
     showThumbnails: boolean;
     thumbnailsShowToggle: boolean;
     thumbnailPosition: ThumbnailPositionEnum;

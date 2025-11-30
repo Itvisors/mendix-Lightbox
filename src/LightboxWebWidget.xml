@@ -48,6 +48,10 @@
                 <caption>On close action</caption>
                 <description>Action to trigger after lightbox is closed</description>
             </property>
+            <property key="maxZoomPixelRatio" type="integer" defaultValue="2">
+                <caption>Max zoom pixel ratio</caption>
+                <description>Determines how far the image can be zoomed in beyond its natural resolution</description>
+            </property>
         </propertyGroup>
         <propertyGroup caption="Thumbnails">
             <property key="showThumbnails" type="boolean" defaultValue="true">

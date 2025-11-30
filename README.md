@@ -7,6 +7,7 @@ This widget is a wrapper around [Yet Another React Lightbox](https://yet-another
 - Show images in a lightbox allow the user to navigate between images
 - Use Mendix images or image URLs
 - Zoom and pan the image
+- Configure the maximum zoom level, default is twice the original resolution, increase to maximum ten times
 - Optionally start the lightbox at a specific image in the list
 - Optionally show a title and description for each image
 - Can also be used as a single image viewer, allowing zoom and pan

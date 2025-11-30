@@ -11,6 +11,7 @@ import "yet-another-react-lightbox/plugins/thumbnails.css";
 export interface LightboxContainerProps {
     slides: SlideImage[];
     index: number;
+    maxZoomPixelRatio: number;
     carouselPreload: number;
     thumbnailPosition: "top" | "bottom" | "start" | "end";
     thumbnailsHidden: boolean;
@@ -55,6 +56,7 @@ export function LightboxContainer(props: LightboxContainerProps): ReactElement {
                     props.onClose();
                 }}
                 // carousel={{ preload }}
+                zoom={{ maxZoomPixelRatio: props.maxZoomPixelRatio }}
                 slides={props.slides}
                 carousel={{ finite: true, preload: props.carouselPreload }}
                 plugins={[Captions, Fullscreen, Thumbnails, Zoom]}
