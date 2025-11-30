@@ -13,25 +13,27 @@ export function LightboxWebWidget(props: LightboxWebWidgetContainerProps): React
         }
     }, [onCloseAction]);
 
-    const { ds, dsTitleAttribute, dsDescriptionAttribute } = props;
+    const { ds, dsUrl, dsTitleAttribute, dsDescriptionAttribute, imageType } = props;
     const slides = useMemo(() => {
         const result = [];
         if (ds.items) {
             for (const dsItem of ds.items) {
-                const url = "/file?guid=" + dsItem.id;
-                result.push({
-                    src: url,
-                    title: dsTitleAttribute?.get(dsItem)?.value,
-                    description: dsDescriptionAttribute?.get(dsItem)?.value
-                });
+                const dsUrlValue = dsUrl?.get(dsItem)?.value;
+                const url = imageType === "url" ? dsUrlValue : "/file?guid=" + dsItem.id;
+                if (url) {
+                    result.push({
+                        src: url,
+                        title: dsTitleAttribute?.get(dsItem)?.value,
+                        description: dsDescriptionAttribute?.get(dsItem)?.value
+                    });
+                }
             }
         }
         return result;
-    }, [ds.items, dsDescriptionAttribute, dsTitleAttribute]);
+    }, [ds.items, dsUrl, dsDescriptionAttribute, dsTitleAttribute, imageType]);
 
     const { startWithImage } = props;
-
-    const startIndex = useMemo(() => {
+    const startIndexImage = useMemo(() => {
         if (!startWithImage || !startWithImage.value?.uri) {
             return 0;
         }
@@ -50,6 +52,19 @@ export function LightboxWebWidget(props: LightboxWebWidgetContainerProps): React
         }
     }, [slides, startWithImage]);
 
+    const { startWithUrl } = props;
+    const startIndexUrl = useMemo(() => {
+        if (!startWithUrl || !startWithUrl.value) {
+            return 0;
+        }
+        const slideIndex = slides.findIndex(element => element.src === startWithUrl.value);
+        if (slideIndex > 0) {
+            return slideIndex;
+        } else {
+            return 0;
+        }
+    }, [slides, startWithUrl]);
+
     if (slides.length === 0) {
         return <div />;
     }
@@ -57,7 +72,7 @@ export function LightboxWebWidget(props: LightboxWebWidgetContainerProps): React
     return (
         <LightboxContainer
             slides={slides}
-            index={startIndex}
+            index={imageType === "url" ? startIndexUrl : startIndexImage}
             onClose={onCloseHandler}
             carouselPreload={props.carouselPreload > 0 ? props.carouselPreload : slides.length}
             thumbnailPosition={props.thumbnailPosition}

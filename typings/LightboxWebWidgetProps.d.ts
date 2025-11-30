@@ -6,6 +6,8 @@
 import { CSSProperties } from "react";
 import { ActionValue, DynamicValue, FileValue, ListValue, ListExpressionValue } from "mendix";
 
+export type ImageTypeEnum = "mendixImage" | "url";
+
 export type ThumbnailPositionEnum = "bottom" | "top" | "start" | "end";
 
 export interface LightboxWebWidgetContainerProps {
@@ -14,9 +16,12 @@ export interface LightboxWebWidgetContainerProps {
     style?: CSSProperties;
     tabIndex?: number;
     ds: ListValue;
+    imageType: ImageTypeEnum;
+    dsUrl?: ListExpressionValue<string>;
     dsTitleAttribute?: ListExpressionValue<string>;
     dsDescriptionAttribute?: ListExpressionValue<string>;
     startWithImage?: DynamicValue<FileValue>;
+    startWithUrl?: DynamicValue<string>;
     onCloseAction?: ActionValue;
     showThumbnails: boolean;
     thumbnailsShowToggle: boolean;
@@ -44,9 +49,12 @@ export interface LightboxWebWidgetPreviewProps {
     renderMode: "design" | "xray" | "structure";
     translate: (text: string) => string;
     ds: {} | { caption: string } | { type: string } | null;
+    imageType: ImageTypeEnum;
+    dsUrl: string;
     dsTitleAttribute: string;
     dsDescriptionAttribute: string;
     startWithImage: string;
+    startWithUrl: string;
     onCloseAction: {} | null;
     showThumbnails: boolean;
     thumbnailsShowToggle: boolean;

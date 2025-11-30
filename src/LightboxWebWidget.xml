@@ -12,6 +12,19 @@
                 <caption>Data source</caption>
                 <description>Datasource for list of images</description>
             </property>
+            <property key="imageType" type="enumeration" defaultValue="mendixImage">
+                <caption>Image type</caption>
+                <description></description>
+                <enumerationValues>
+                    <enumerationValue key="mendixImage">Mendix image</enumerationValue>
+                    <enumerationValue key="url">URL</enumerationValue>
+                </enumerationValues>
+            </property>
+            <property key="dsUrl" type="expression" dataSource="ds" required="false">
+                <caption>URL</caption>
+                <description>Image URL</description>
+                <returnType type="String" />
+            </property>
             <property key="dsTitleAttribute" type="expression" dataSource="ds" required="false">
                 <caption>Title</caption>
                 <description>Title to show in the top left area over the image. (Optional)</description>
@@ -25,6 +38,11 @@
             <property key="startWithImage" type="file" required="false">
                 <caption>Start with</caption>
                 <description>Image to show when opening the lightbox. If not set or empty, first image in the list will be shown</description>
+            </property>
+            <property key="startWithUrl" type="expression" required="false">
+                <caption>Start with</caption>
+                <description>URL of the image to show when opening the lightbox. If not set or empty, first image in the list will be shown</description>
+                <returnType type="String" />
             </property>
             <property key="onCloseAction" type="action" required="false">
                 <caption>On close action</caption>

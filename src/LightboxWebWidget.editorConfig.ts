@@ -1,4 +1,5 @@
 import { LightboxWebWidgetPreviewProps } from "../typings/LightboxWebWidgetProps";
+import { hidePropertyIn } from "@mendix/pluggable-widgets-tools";
 
 export type Platform = "web" | "desktop";
 
@@ -109,12 +110,35 @@ export function getProperties(
         delete defaultProperties.properties.myOtherProperty;
     }
     */
+
+    switch (_values.imageType) {
+        case "mendixImage":
+            hidePropertyIn(defaultProperties, _values, "dsUrl");
+            hidePropertyIn(defaultProperties, _values, "startWithUrl");
+
+            break;
+
+        case "url":
+            hidePropertyIn(defaultProperties, _values, "startWithImage");
+
+            break;
+
+        default:
+            break;
+    }
+
     return defaultProperties;
 }
 
 export function check(_values: LightboxWebWidgetPreviewProps): Problem[] {
     const errors: Problem[] = [];
     // Add errors to the above array to throw errors in Studio and Studio Pro.
+    if (_values.imageType === "url" && !_values.dsUrl) {
+        errors.push({
+            property: "dsUrl",
+            message: "Property 'URL' is required for image type URL"
+        });
+    }
     if (_values.carouselPreload != null && _values.carouselPreload < 0) {
         errors.push({
             property: "carouselPreload",
