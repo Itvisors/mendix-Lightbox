@@ -1,4 +1,4 @@
-import { ReactElement, createElement, useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import Lightbox, { SlideImage, SlotStyles } from "yet-another-react-lightbox";
 import Captions from "yet-another-react-lightbox/plugins/captions";
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";

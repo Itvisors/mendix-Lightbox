@@ -1,4 +1,4 @@
-import { ReactElement, createElement, useCallback, useMemo } from "react";
+import { ReactElement, useCallback, useMemo } from "react";
 import { LightboxContainer } from "./components/LightboxContainer";
 
 import { LightboxWebWidgetContainerProps } from "../typings/LightboxWebWidgetProps";
