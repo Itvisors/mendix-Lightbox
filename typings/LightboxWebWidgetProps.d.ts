@@ -3,8 +3,8 @@
  * WARNING: All changes made to this file will be overwritten
  * @author Mendix Widgets Framework Team
  */
+import { ActionValue, DynamicValue, FileValue, ListExpressionValue, ListValue } from "mendix";
 import { CSSProperties } from "react";
-import { ActionValue, DynamicValue, FileValue, ListValue, ListExpressionValue } from "mendix";
 
 export type ImageTypeEnum = "mendixImage" | "url";
 

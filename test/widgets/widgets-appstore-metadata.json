@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0",
+  "widgets": [
+    {
+      "sha-256": "61d02b6e1f97e740471a11e7dba24ff9a21af96ca96cf1f3934a1b705a86d25b",
+      "name": "Image",
+      "version": "1.5.1",
+      "appStoreVersionGuid": "2ff41b6e-8f18-4c99-97fc-13e8d25738e4"
+    },
+    {
+      "sha-256": "5abab602f5a1e387a3283438b73d47cac0fb1cffc32d885395adca9196030884",
+      "name": "Combobox",
+      "version": "2.6.2",
+      "appStoreVersionGuid": "acfc1935-5b3b-4d4b-9370-a09635e7becd"
+    },
+    {
+      "sha-256": "756843678127aae13463c113cabc1f85df3786dae76d44e54a6930a6be81a9e7",
+      "name": "PopupMenu",
+      "version": "4.0.2",
+      "appStoreVersionGuid": "254a230d-d17a-40f2-91f1-17e445ba8126"
+    },
+    {
+      "sha-256": "5b565d39721447414b5a1416417b04beb6d2a6a7c4a98e9b4acb516c633fda3a",
+      "name": "Combo box",
+      "version": "2.9.0",
+      "appStoreVersionGuid": "dce845f4-d051-4161-847c-016c01703caa"
+    }
+  ]
+}
